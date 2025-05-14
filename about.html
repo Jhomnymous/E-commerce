@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Furniture Haven</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaQ/responsive.css">
+    <!-- Fontawesome JS -->
+    <script src="https://kit.fontawesome.com/b233c25427.js" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            line-height:  1.6;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        /* About Sections */
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2a3f54;
+            font-size: 32px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .section-title.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #f0c14b;
+            margin: 15px auto;
+        }
+        
+        .intro-content, .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .intro-text, .mission, .vision {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .intro-text.animated, .mission.animated, .vision.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .intro-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .intro-image.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mission {
+            border-top: 4px solid #4CAF50;
+        }
+        
+        .vision {
+            border-top: 4px solid #2196F3;
+        }
+        
+        h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2a3f54;
+        }
+        
+        /* User Info Section */
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .team-member.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        .team-member:nth-child(1) { transition-delay: 0.1s; }
+        .team-member:nth-child(2) { transition-delay: 0.3s; }
+        .team-member:nth-child(3) { transition-delay: 0.5s; }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid #f0c14b;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .team-member:hover img {
+            transform: scale(1.05);
+            border-color: #2a3f54;
+        }
+        
+        .member-name {
+            font-size: 22px;
+            color: #2a3f54;
+            margin-bottom: 5px;
+        }
+        
+        .member-position {
+            color: #f0c14b;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .member-info {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #2a3f54;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #f0c14b;
+            transform: translateY(-3px);
+        }
+        
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .intro-content, .mission-vision {
+                flex-direction: column;
+            }
+            
+            .intro-image {
+                order: -1;
+            }
+            
+            .team-member {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-header flex">
+        <a href="home.html">
+            <img src="img/logo.png" alt="logo">
+        </a>
+        
+        <!-- ICON MENU -->
+        <i class="fa-solid fa-bars menu-icon"></i>
+        
+        <nav class="navbar">
+            <div class="searchbar">
+                <input type="text" placeholder="Search item..." required>
+                <button type="button">Search</button>
+            </div>
+            
+            
+            <ul class="menu flex">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li class="icons flex">
+                    <i class="fa-solid fa-cart-shopping carts"></i>
+                    <a href="profile.html">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Story</h1>
+            <p>Discover the passion behind Inwood Furniture</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">About Inwood Furniture</h2>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <p>Welcome to Inwood Furniture, your premier destination for high-quality, stylish furniture that transforms houses into homes. Founded in 2015, we've grown from a small local shop to a thriving e-commerce platform serving customers nationwide.</p>
+                    <p>At Inwood Furniture, we believe that great furniture should be accessible to everyone. That's why we work directly with artisans and manufacturers to bring you beautifully crafted pieces at prices that won't break the bank. Our curated collections blend timeless design with modern functionality to suit every taste and lifestyle.</p>
+                    <p>What sets us apart is our commitment to sustainability. We carefully select materials and partners who share our environmental values, ensuring that your furniture is as kind to the planet as it is to your living space.</p>
+                </div>
+                <div class="intro-image"></div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>To inspire and enable people to create beautiful, functional living spaces by providing exceptional furniture, outstanding customer service, and unparalleled value. We strive to make the furniture shopping experience enjoyable, transparent, and rewarding for every customer.</p>
+                </div>
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>To become the most trusted and loved furniture brand by redefining home furnishings through innovative design, sustainable practices, and a customer-first approach. We envision a future where every home reflects the personality and values of its inhabitants through thoughtfully designed furniture.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-members">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010" alt="Jhomel Red">
+                    <h3 class="member-name">Jhomel Red</h3>
+                    <p class="member-position">Programmer</p>
+                    <!-- <p class="member-info">With over 15 years in the furniture industry, Sarah founded Inwood Furniture with a vision to make quality design accessible to everyone.</p> -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010" alt="Aarol Tumbagahan">
+                    <h3 class="member-name">Aarol Tumbagahan</h3>
+                    <p class="member-position">Reporter</p>
+                    <!-- <p class="member-info">Michael brings innovative design concepts to life, blending functionality with aesthetic appeal in every piece we create.</p> -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png?20200919003010" alt="Joshua Pusing">
+                    <h3 class="member-name">Joshua Pusing</h3>
+                    <p class="member-position">Reporter</p>
+                    <!-- <p class="member-info">Emily ensures every customer receives exceptional service from browsing to delivery and beyond.</p> -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="flex foot-cont">
+            <section>
+                <a href="home.html">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+                
+                <div class="soc-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                
+                <p style="color: #07484A; line-height: 2;">
+                    <b style="color: #07484A;">Address</b> <br>
+                    123 Street, City, Country <br>
+                    +63 123 456 7890 <br>
+                    0e9cI@example.com
+                </p>
+            </section>
+            
+            <section class="flex sect-2">
+                <div>
+                    <h2>My Account</h2>
+                    <ul>
+                        <li><a href="login.html">Sign in</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Order Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Help</h2>
+                    <ul>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Sizing</a></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="flex sect-2">
+                <div>
+                    <h2>Shop</h2>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Legal Stuff</h2>
+                    <ul>
+                        <li><a href="#">Shipping &amp; Delivery</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy &amp; Policy</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+        <p style="text-align: center; margin-top: 1rem;">&copy; 2025 OOP-E-Commerce</p>
+    </footer>
+    
+    <script>
+        // Select the header element
+        const header = document.querySelector('.top-header');
+
+        // Add an event listener for the scroll event
+        window.addEventListener('scroll', () => {
+            console.log(window.scrollY); // Log the scroll position for debugging
+            if (window.scrollY > 50) {
+                // Change background color when scrolled down
+                header.style.backgroundColor = 'rgba(223, 223, 223, 1)';
+            } else {
+                // Reset background color when at the top
+                header.style.backgroundColor = 'transparent';
+            }
+        });
+
+        // Animation on scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all elements to animate
+            const elementsToAnimate = document.querySelectorAll(
+                '.section-title, .intro-text, .intro-image, .mission, .vision, .team-member'
+            );
+
+            // Create intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        // Stop observing after animation triggers
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // Trigger when 10% of element is visible
+                rootMargin: '0px 0px -100px 0px' // Adjust trigger point slightly higher
+            });
+
+            // Observe each element
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Hero text animation
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.animation = 'fadeInDown 1s ease-out forwards';
+        });
+    </script>
+</body>
+</html>

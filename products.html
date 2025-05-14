@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaQ/responsive.css">
+    <!-- Fontawesome JS -->
+    <script src="https://kit.fontawesome.com/b233c25427.js" crossorigin="anonymous"></script>
+    <style>
+        /* Add these new animation styles */
+        .header {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .header.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition-delay: calc(var(--order) * 0.1s);
+        }
+        
+        .product-card.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Enhance existing product card hover effects */
+        .product-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .btn-cart, .btn-order {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-cart:hover {
+            background-color: #2a3f54;
+            transform: translateY(-2px);
+        }
+        
+        .btn-order:hover {
+            background-color: #f0c14b;
+            color: #2a3f54;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-header flex">
+        <a href="home.html">
+            <img src="img/logo.png" alt="logo">
+        </a>
+
+        <!-- ICON MENU -->
+        <i class="fa-solid fa-bars menu-icon"></i>
+
+        <nav class="navbar">
+            <div class="searchbar">
+                <input type="text" placeholder="Search item..." required>
+                <button type="button">Search</button>
+            </div>
+
+            <ul class="menu flex">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#products" class="active">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="icons flex">
+                    <div class="carts">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <a href="profile.html">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="header">
+        <h1>Our Products</h1>
+        <p>High quality items at affordable prices</p>
+    </div>
+
+    <!-- Product Wrapper -->
+    <main class="products-container">
+        <div class="product-card" style="--order: 1">
+            <img src="https://m.media-amazon.com/images/I/81rgz1aKGiS._AC_SX679_.jpg" alt="Serta Down Illusion Bed"
+                class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">Serta Down Illusion Bed</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;5,692</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="1" data-name="Serta Down Illusion Bed" data-price="5692"
+                        data-image="https://m.media-amazon.com/images/I/81rgz1aKGiS._AC_SX679_.jpg">Add to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" style="--order: 2">
+            <img src="https://m.media-amazon.com/images/I/81ENRWTA00L.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                alt="Farmhouse White Cabinet" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">Farmhouse White Cabinet</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;3,299</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="2" data-name="Farmhouse White Cabinet" data-price="3299"
+                        data-image="https://m.media-amazon.com/images/I/81ENRWTA00L.__AC_SX300_SY300_QL70_FMwebp_.jpg">Add
+                        to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" style="--order: 3">
+            <img src="https://m.media-amazon.com/images/I/81zRuiyQdhL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                alt="Finnhomy Dining Chairs Set of 2" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">Finnhomy Dining Chairs Set of 2</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;2,232</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="3" data-name="Finnhomy Dining Chairs Set of 2"
+                        data-price="2232"
+                        data-image="https://m.media-amazon.com/images/I/81zRuiyQdhL.__AC_SX300_SY300_QL70_FMwebp_.jpg">Add
+                        to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" style="--order: 4">
+            <img src="https://m.media-amazon.com/images/I/91hi3IaYn5L.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                alt="Sofa-in-a-Box" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">Sofa-in-a-Box</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;3,899</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="4" data-name="Sofa-in-a-Box" data-price="3899"
+                        data-image="https://m.media-amazon.com/images/I/91hi3IaYn5L.__AC_SX300_SY300_QL70_FMwebp_.jpg">Add
+                        to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" style="--order: 5">
+            <img src="https://m.media-amazon.com/images/I/71lbxMit1GL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                alt="Waterproof Kids Modular Sofa" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">Waterproof Kids Modular Sofa</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;3,070</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="5" data-name="Waterproof Kids Modular Sofa" data-price="3070"
+                        data-image="https://m.media-amazon.com/images/I/71lbxMit1GL.__AC_SX300_SY300_QL70_FMwebp_.jpg">Add
+                        to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" style="--order: 6">
+            <img src="https://m.media-amazon.com/images/I/71DzFuHKExL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                alt="Buffet Cabinet White" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">Buffet Cabinet White</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;2,734</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="6" data-name="Buffet Cabinet White" data-price="2734"
+                        data-image="https://m.media-amazon.com/images/I/71DzFuHKExL.__AC_SX300_SY300_QL70_FMwebp_.jpg">Add
+                        to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card" style="--order: 7">
+            <img src="https://m.media-amazon.com/images/I/719jTsaCVZL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                alt="Dining Chair Set of 2" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">Dining Chair Set of 2</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;2,008</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="7" data-name="Dining Chair Set of 2" data-price="2008"
+                        data-image="https://m.media-amazon.com/images/I/719jTsaCVZL.__AC_SX300_SY300_QL70_FMwebp_.jpg">Add
+                        to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card" style="--order: 8">
+            <img src="https://m.media-amazon.com/images/I/81ZLcwuwX8L.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                alt="OLEVS Floating Bed Frame" class="product-image">
+            <div class="product-info">
+                <h3 class="product-name">OLEVS Floating Bed Frame</h3>
+                <!-- Star rating -->
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
+                <p class="product-price">&#8369;5,024</p>
+                <div class="product-buttons">
+                    <button class="btn btn-cart" data-id="8" data-name="OLEVS Floating Bed Frame" data-price="5024"
+                        data-image="https://m.media-amazon.com/images/I/81ZLcwuwX8L.__AC_SX300_SY300_QL70_FMwebp_.jpg">Add
+                        to Cart</button>
+                    <button class="btn btn-order">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Tab -->
+    <div class="cartTab">
+        <h1>Shopping Cart</h1>
+        <div class="listCart">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="total">
+            <h3>Total: $<span id="cartTotal">0.00</span></h3>
+        </div>
+        <div class="btn">
+            <button class="close">CLOSE</button>
+            <button class="checkOut">Check Out</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="flex foot-cont">
+            <section>
+                <a href="home.html">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+
+                <div class="soc-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+
+                <p style="color: #07484A; line-height: 2;">
+                    <b style="color: #07484A;">Address</b> <br>
+                    123 Street, City, Country <br>
+                    +63 123 456 7890 <br>
+                    0e9cI@example.com
+                </p>
+            </section>
+
+            <section class="flex sect-2">
+                <div>
+                    <h2>My Account</h2>
+                    <ul>
+                        <li><a href="login.html">Sign in</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Order Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Help</h2>
+                    <ul>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Sizing</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="flex sect-2">
+                <div>
+                    <h2>Shop</h2>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Legal Stuff</h2>
+                    <ul>
+                        <li><a href="#">Shipping &amp; Delivery</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy &amp; Policy</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <p style="text-align: center; margin-top: 1rem;">&copy; 2025 OOP-E-Commerce</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Header scroll effect
+        const header = document.querySelector(".top-header");
+        
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = "rgba(223, 223, 223, 1)";
+            } else {
+                header.style.backgroundColor = "transparent";
+            }
+        });
+
+        // Scroll animation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all elements to animate
+            const elementsToAnimate = document.querySelectorAll(
+                '.header, .product-card'
+            );
+
+            // Create intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        // Stop observing after animation triggers
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // Trigger when 10% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Adjust trigger point slightly higher
+            });
+
+            // Observe each element
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Initial header animation
+            const pageHeader = document.querySelector('.header');
+            pageHeader.style.animation = 'fadeInUp 0.8s ease-out forwards';
+        });
+    </script>
+</body>
+</html>

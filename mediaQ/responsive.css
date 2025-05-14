@@ -1,0 +1,95 @@
+/*  MOBILE & TABLET */
+@media screen and (max-width: 900px) {
+    /* HOME PAGE */
+    header {
+        padding: 10px 2rem;
+        justify-content: space-between;
+    }
+
+    header a img {
+        width: 88px;
+        height: 27px;
+    }
+    
+    i.menu-icon {
+        display: inline-block;
+    }
+
+    .menu-icon.active {
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        padding: .5rem;
+        z-index: 1001;
+    }
+
+    .navbar {
+        position: absolute;
+        top: -1000%;
+        right: 0;
+        width: 100%;
+        flex-direction: column-reverse;
+        row-gap: 1em;
+        padding: 1.5em 0;
+        background: #fdfdfd;
+        z-index: 1000;
+    }
+
+    .navbar.show {
+        top: 0;
+    }
+
+    .navbar .menu {
+        width: 100%;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .menu li {
+        width: 100%;
+        padding: 0.5em 0;
+    }
+
+    .menu li a {
+        text-align: center;
+    }
+
+    .menu .icons {
+        justify-content: center;
+    }
+
+    .navbar .searchbar {
+        width: 290px;
+    }
+
+    .hero-section {
+        padding: 1rem;
+    }
+
+    .hero-section .title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-section .sub-title {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .hero-section .shop-btn {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    .categories .grid {
+        height: 160vh;
+        grid-template-columns: repeat(1, 300px);
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 0;
+        grid-row-gap: 1rem;
+        padding: 1rem 0;
+    }
+}

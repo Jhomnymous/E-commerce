@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaQ/responsive.css">
+    <!-- Fontawesome JS -->
+    <script src="https://kit.fontawesome.com/b233c25427.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            position: relative;
+        }
+        
+        header {
+            top: 0;
+        }
+        
+        .profile-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            margin-top: 7rem;
+            padding: 30px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .profile-picture-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #e0e0e0;
+            cursor: pointer;
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .profile-picture-container:hover .profile-picture {
+            opacity: 0.8;
+        }
+
+        .upload-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #4CAF50;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .logout-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        .save-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .save-btn:hover {
+            background-color: #388E3C;
+        }
+
+        @media (max-width: 600px) {
+            .profile-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="top-header flex">
+        <a href="home.html">
+            <img src="img/logo.png" alt="logo">
+        </a>
+        
+        <!-- ICON MENU -->
+        <i class="fa-solid fa-bars menu-icon"></i>
+        
+        <nav class="navbar">
+            <div class="searchbar">
+                <input type="text" placeholder="Search item..." required>
+                <button type="button">Search</button>
+            </div>
+            
+            
+            <ul class="menu flex">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="icons flex">
+                    <i class="fa-solid fa-cart-shopping carts"></i>
+                    <a href="profile.html" class="active">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="profile-container">
+        <div class="profile-header">
+            <h1>Profile Settings</h1>
+            <div class="profile-picture-container">
+                <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-picture">
+                <div class="upload-icon">+</div>
+                <input type="file" id="profile-upload" style="display: none;" accept="image/*">
+            </div>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" value="Jhomel Red">
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" id="contact" placeholder="Enter your phone number" value="0912345678">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" value="jhomel@example.com">
+            </div>
+
+            <button type="submit" class="save-btn">Save Changes</button>
+            <button type="button" class="logout-btn">Logout</button>
+        </form>
+    </main>
+
+    <script>
+        // Simple JavaScript for profile picture upload and logout
+        document.addEventListener('DOMContentLoaded', function() {
+            // Profile picture upload
+            const profilePicContainer = document.querySelector('.profile-picture-container');
+            const profileUpload = document.getElementById('profile-upload');
+            
+            profilePicContainer.addEventListener('click', function() {
+                profileUpload.click();
+            });
+            
+            profileUpload.addEventListener('change', function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(event) {
+                        document.querySelector('.profile-picture').src = event.target.result;
+                    }
+                    
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+            
+            // Logout button
+            const logoutBtn = document.querySelector('.logout-btn');
+            logoutBtn.addEventListener('click', function() {
+                // In a real app, this would redirect to login page
+                alert('You have been logged out. Redirecting to login page...');
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
